@@ -58,7 +58,7 @@ I want to see all possible listings.
 
 As a signed-up user wanting to travel,
 in order to view a place I am interested in,
-I want to be able to access individual listings.
+I want to be able to access individual listing.
 
 As a signed-up user wanting to travel,
 in order to avoid disappointment,
