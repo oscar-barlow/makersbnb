@@ -2,7 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'data_mapper'
 require_relative './models/user'
-require_relative 'datamapper_setup.rb'
+require_relative 'datamapper_setup'
 setup
 
 
@@ -29,7 +29,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listing' do
-    erb :listing 
+    erb :listing
   end
 
 helpers do
