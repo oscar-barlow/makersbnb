@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MakersBnB</title>
+  </head>
+  <body>
+    <header>
+      <% if current_user %>
+      <h1> Hello <%= current_user.username.capitalize %> </h1>
+      <% end %>
+      <%= yield %>
+    </header>
+  </body>
+</html>
