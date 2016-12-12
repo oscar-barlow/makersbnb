@@ -1,4 +1,3 @@
-require_relative "datamapper_setup"
 require 'dm-validations'
 require 'bcrypt'
 
@@ -12,12 +11,10 @@ class User
   property :password_digest, Text
 
   attr_reader :password
-  attr_accessor :confirmation_password
 
   def password=(password)
     @password = password
-    
+    self.password_digest = BCrypt::Password.create(password)
   end
-end
 
-setup
+end
