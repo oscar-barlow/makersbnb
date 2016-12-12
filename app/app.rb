@@ -25,7 +25,11 @@ class MakersBnB < Sinatra::Base
                         password: params[:password])
     session[:user_id] = @user.id
     session[:username] = @user.username
-    redirect '/'
+    redirect '/listing'
+  end
+
+  get '/listing' do
+    erb :listing 
   end
 
 helpers do
