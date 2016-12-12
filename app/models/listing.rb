@@ -8,5 +8,6 @@ class Listing
   property :id, Serial
   property :name, String
   property :price, Decimal
+  property :description, String
 
 end
