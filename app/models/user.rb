@@ -1,4 +1,3 @@
-require_relative "datamapper_setup"
 require 'dm-validations'
 require 'bcrypt'
 
@@ -16,8 +15,6 @@ class User
 
   def password=(password)
     @password = password
-    
+
   end
 end
-
-setup

@@ -8,8 +8,8 @@ class Listing
   property :id, Serial
   property :name, String
 
-  DataMapper.setup(:default, "postgres://localhost/makersbnb_test")
-  DataMapper.finalize
-  DataMapper.auto_upgrade!
+  # DataMapper.setup(:default, "postgres://localhost/makersbnb_test")
+  # DataMapper.finalize
+  # DataMapper.auto_upgrade!
 
 end
