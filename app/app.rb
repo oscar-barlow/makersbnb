@@ -1,12 +1,14 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
-
+require 'sinatra/flash'
 require 'data_mapper'
 require_relative './models/user'
 require_relative 'datamapper_setup'
 setup
 
 class MakersBnB < Sinatra::Base
+
+  register Sinatra::Flash
 
   enable :sessions
   set :session_secret, 'super secret'
@@ -28,6 +30,7 @@ class MakersBnB < Sinatra::Base
       session[:username] = @user.username
       redirect '/listing'
     else
+      flash.next[:error] = "This user already exists, please change your details or log in" 
       redirect '/sign_up'
     end
   end
