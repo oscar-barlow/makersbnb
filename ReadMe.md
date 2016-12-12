@@ -47,7 +47,7 @@ so that I have a choice whether to take a booking,
 I want to approve a booking before it is confirmed.
 
 As a signed up user with a space listing,
-so that I don't disappoint potential visits,
+so that I don't disappoint potential visitors,
 I want to mark a night with a confirmed booking as unavailable to others.   
 ```
 
@@ -57,8 +57,8 @@ in order to find a place to stay,
 I want to see all possible listings.
 
 As a signed-up user wanting to travel,
-in oder to view a place I am interested in,
-I want to be able to access individual listings.
+in order to view a place I am interested in,
+I want to be able to access individual listing.
 
 As a signed-up user wanting to travel,
 in order to avoid disappointment,
