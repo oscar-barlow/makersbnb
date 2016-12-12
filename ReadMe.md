@@ -57,7 +57,7 @@ in order to find a place to stay,
 I want to see all possible listings.
 
 As a signed-up user wanting to travel,
-in oder to view a place I am interested in,
+in order to view a place I am interested in,
 I want to be able to access individual listings.
 
 As a signed-up user wanting to travel,
