@@ -1,6 +1,10 @@
 # MakersBnB
 A web application that allows users to list spaces for hire, and to hire spaces for one/several nights.
 
+**Assumptions**
+* When you list a space, it's available by default. As a space owner, it's up to to mark when it's unavailable.
+* When a space owner approves a reservation, the reservation is confirmed. No further action is needed by the space owner or requester.
+
 ## User Stories
 ```
 As a user,
