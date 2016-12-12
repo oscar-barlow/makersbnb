@@ -23,9 +23,13 @@ class MakersBnB < Sinatra::Base
     @user = User.create(username: params[:username],
                         email: params[:email],
                         password: params[:password])
-    session[:user_id] = @user.id
-    session[:username] = @user.username
-    redirect '/listing'
+    if @user.save
+      session[:user_id] = @user.id
+      session[:username] = @user.username
+      redirect '/listing'
+    else
+      redirect '/sign_up'
+    end
   end
 
   get '/listing' do
