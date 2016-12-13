@@ -26,4 +26,12 @@ feature "Log in" do
     expect(page.current_path).to eq('/log_in')
     expect(page).to_not have_content("Your details are incorrect")
   end
+
+  it("should redirect user to listing page if they are already logged in") do
+    visit '/log_in'
+    log_in
+    visit '/log_in'
+    expect(page.status_code).to eq(200)
+    expect(page.current_path).to eq('/listing')
+  end
 end

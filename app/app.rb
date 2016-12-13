@@ -38,7 +38,11 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/log_in' do
-    erb :log_in
+    if session[:user_id] != nil
+      redirect '/listing'
+    else
+      erb :log_in
+    end
   end
 
   post '/exisiting_user' do
