@@ -12,7 +12,15 @@
         <input type='hidden' name='_method' value='delete'>
         <input type='submit' value="Log Out">
       </form>
-      <%= yield %>
     </header>
+
+    <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul id='flash'>
+      <% flash[:errors].each do |error| %>
+       <li> <%= error %> </li>
+      <% end %>
+    </ul>
+    <%end %>
+<%= yield %>
   </body>
 </html>

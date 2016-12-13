@@ -32,7 +32,7 @@ class MakersBnB < Sinatra::Base
       session[:username] = @user.username
       redirect '/listing'
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.next[:errors] = @user.errors.full_messages
       redirect '/sign_up'
     end
   end

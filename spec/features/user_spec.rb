@@ -20,7 +20,8 @@ feature "User" do
     expect(page.status_code).to eq(200)
     expect{ failed_sign_up_uniqueness }.to_not change(User, :count)
     expect(page.current_path).to eq('/sign_up')
-    expect(page).to have_content("This user already exists, please change your details or log in")
+    expect(page).to have_content("Username is already taken")
+    expect(page).to have_content("Email is already taken")
   end
 
   scenario "I don't want to be able to sign up if I do not have the correct email format" do
@@ -29,6 +30,7 @@ feature "User" do
     expect(page.status_code).to eq(200)
     expect{ failed_sign_up_email_format }.to_not change(User, :count)
     expect(page.current_path).to eq('/sign_up')
-    expect(page).to have_content("This user already exists, please change your details or log in")
+    expect(page).to have_content("Username is already taken")
+    expect(page).to have_content("Email has an invalid format")
   end
 end
