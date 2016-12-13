@@ -2,8 +2,13 @@ require 'spec_helper'
 require 'web_helper'
 
 feature "Create listing" do
-  scenario "Signed up user creates new listing" do
+
+  before(:each) do
+    visit '/sign_up'
     sign_up
+  end
+
+  scenario "Signed up user creates new listing" do
     visit '/listing/new'
     fill_in("name", with: "A Lovely Cottage")
     fill_in("price", with: 12.5)

@@ -31,7 +31,7 @@ class MakersBnB < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       session[:username] = @user.username
-      redirect '/listing'
+      redirect '/listing1'
     else
       flash.next[:errors] = @user.errors.full_messages
       redirect '/sign_up'
@@ -40,7 +40,7 @@ class MakersBnB < Sinatra::Base
 
   get '/log_in' do
     if session[:user_id] != nil
-      redirect '/listing'
+      redirect '/listing1'
     else
       erb :log_in
     end
@@ -49,18 +49,18 @@ class MakersBnB < Sinatra::Base
   post '/existing_user' do
     user = User.authenticate(params[:username], params[:password])
       if user
-         session[:user_id] = @user.id
-          session[:username] = @user.username
-          redirect '/listing/new'
+         session[:user_id] = user.id
+          session[:username] = user.username
+          redirect '/listing1'
       else
         flash.next[:notice] = "Your details are incorrect"
         redirect '/log_in'
       end
   end
 
-  # get '/listing' do # this is a prime candidate for renaming/repurposing...
-  #   erb :listing
-  # end
+  get '/listing1' do # this is a prime candidate for renaming/repurposing...
+    erb :listing
+  end
 
   get '/listing/new' do
     if !current_user
@@ -77,7 +77,7 @@ class MakersBnB < Sinatra::Base
 
   get '/user/listings' do
     @listings = Listing.all(user_id: current_user.id)
-    erb :'users/listings'
+    erb :'user/listings'
   end
 
   delete '/sessions' do
