@@ -25,11 +25,29 @@ class MakersBnB < Sinatra::Base
                         password: params[:password])
     session[:user_id] = @user.id
     session[:username] = @user.username
-    redirect '/listing'
+    redirect '/listing/new'
   end
 
-  get '/listing' do
-    erb :listing
+  # get '/listing' do # this is a prime candidate for renaming/repurposing...
+  #   erb :listing
+  # end
+
+  get '/listing/new' do
+    if !current_user
+      redirect '/'
+    else
+      erb :'listings/new'
+    end
+  end
+
+  post '/listing' do
+    Listing.create(name: params[:name], price: params[:price], description: params[:description], user_id: current_user.id)
+    redirect('/user/listings')
+  end
+
+  get '/user/listings' do
+    @listings = Listing.all(user_id: current_user.id)
+    erb :'users/listings'
   end
 
 helpers do
