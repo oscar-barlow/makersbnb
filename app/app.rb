@@ -16,6 +16,7 @@ class MakersBnB < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
+    @listings = Listing.all
     erb :index
   end
 
