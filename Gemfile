@@ -9,9 +9,11 @@ group :test do
 end
 
 gem 'dm-postgres-adapter'
+gem 'sinatra-flash'
 gem 'data_mapper'
 gem 'sinatra'
 gem 'bcrypt'
 gem 'rake'
+gem 'rack'
 gem 'pry'
 gem 'json', '1.8.3'
