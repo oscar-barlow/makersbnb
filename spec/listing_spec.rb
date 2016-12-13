@@ -2,9 +2,16 @@ require_relative '../app/models/listing.rb'
 
 describe Listing do
 
-  it "can be created as an object in the database" do
-    expect{Listing.create(name: "A Lovely Cottage")}.to change(Listing, :count).by(1)
+  it "Will not be created as an object in the database if a name is not included" do
+    expect{Listing.create(name: nil)}.to_not change(Listing, :count)
   end
 
+  it "Will not be created as an object in the database if a price is not included" do
+    expect{Listing.create(name: "A Lovely Cottage", price: nil)}.to_not change(Listing, :count)
+  end
+
+  it "Will not be created as an object in the database if a description is not included" do
+    expect{Listing.create(name: "A Lovely Cottage", price: 12.5, description: nil)}.to_not change(Listing, :count)
+  end
 
 end
