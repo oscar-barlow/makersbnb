@@ -33,4 +33,10 @@ feature "User" do
     expect(page).to have_content("Username is already taken")
     expect(page).to have_content("Email has an invalid format")
   end
+
+  scenario "I want to be able to see a way to sign up if I am not already" do
+    visit '/listing1'
+    expect(page).to have_content("Sign up")
+  end
+
 end
