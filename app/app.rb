@@ -30,14 +30,23 @@ class MakersBnB < Sinatra::Base
       session[:username] = @user.username
       redirect '/listing'
     else
-      flash.next[:error] = "This user already exists, please change your details or log in" 
+      flash.next[:error] = "This user already exists, please change your details or log in"
       redirect '/sign_up'
     end
+  end
+
+  get '/log_in' do
+    erb :log_in
+  end
+
+  post '/exisiting_user' do
+    redirect '/listing'
   end
 
   get '/listing' do
     erb :listing
   end
+
 
 helpers do
   def current_user
