@@ -10,7 +10,8 @@ describe Listing do
     expect{Listing.create(name: "A Lovely Cottage")}.to change(Listing, :count).by(1)
   end
 
-
-
+  it "Will not be created as an object in the database if a name is not included" do
+    expect{Listing.create(name: nil)}.to_not change(Listing, :count)
+  end
 
 end
