@@ -20,7 +20,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/user/new' do
-   erb :sign_up
+   erb :'user/new'
   end
 
   post '/user' do
@@ -42,7 +42,7 @@ class MakersBnB < Sinatra::Base
     if session[:user_id] != nil
       redirect '/'
     else
-      erb :log_in
+      erb :'session/new'
     end
   end
 
