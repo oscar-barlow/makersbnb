@@ -10,4 +10,6 @@ class Listing
   property :price, Float, required: true
   property :description, String, required: true
 
+  belongs_to :user
+
 end
