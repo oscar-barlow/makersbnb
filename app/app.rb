@@ -45,13 +45,13 @@ class MakersBnB < Sinatra::Base
     end
   end
 
-  post '/exisiting_user' do
+  post '/existing_user' do
     user = User.authenticate(params[:username], params[:password])
       if user
         session[:user_id] = user.id
         redirect '/listing'
       else
-        flash.next[:error] = "Your details are incorrect"
+        flash.next[:notice] = "Your details are incorrect"
         redirect '/log_in'
       end
   end

@@ -8,11 +8,10 @@
       <% if current_user %>
       <h1> Hello <%= current_user.username.capitalize %> </h1>
       <% end %>
-      <form action='/sessions' method='post'>
-        <input type='hidden' name='_method' value='delete'>
-        <input type='submit' value="Log Out">
-      </form>
     </header>
+    <% if flash[:notice] %>
+    <div id='notice'><%= flash[:notice] %></div>
+    <% end %>
 
     <% if flash[:errors] && !flash[:errors].empty? %>
     <ul id='flash'>
@@ -21,6 +20,15 @@
       <% end %>
     </ul>
     <%end %>
-<%= yield %>
+    <%= yield %>
+
+    <% if current_user %>
+    <form action='/sessions' method='post'>
+      <input type='hidden' name='_method' value='delete'>
+      <input type='submit' value="Log Out">
+    </form>
+    <%end%>
+
+
   </body>
 </html>

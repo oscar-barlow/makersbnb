@@ -18,13 +18,13 @@ feature "Log in" do
     expect(page).to have_content("Hello Oscar")
   end
 
-  it("should not allow me to log in if my email does not match my registered email") do
+  it("should not allow me to log in if my username does not match my registered username") do
     visit '/log_in'
     expect(page.status_code).to eq(200)
 
     failed_log_in_wrong_username
     expect(page.current_path).to eq('/log_in')
-    expect(page).to_not have_content("Your details are incorrect")
+    expect(page).to have_content("Your details are incorrect")
   end
 
   it("should redirect user to listing page if they are already logged in") do
