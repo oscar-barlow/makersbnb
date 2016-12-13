@@ -10,7 +10,7 @@ feature "See all listings" do
     create_listing
   end
 
-  scenario "user can view the listings on the home page whether if logged in" do
+  scenario "user can view the listings on the home page if logged in" do
       visit '/'
       expect(page).to have_content("A Lovely Cottage")
 
