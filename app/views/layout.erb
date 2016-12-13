@@ -7,9 +7,9 @@
     <header>
       <h1>MakersBnB - Find a Place to Stay Tonight</h1>
       <% if current_user %>
+      <h1> Hello <%= current_user.username.capitalize %> </h1>
       <% end %>
     </header>
-    <h1> Hello <%= current_user.username.capitalize %> </h1>
     <% if flash[:notice] %>
     <div id='notice'><%= flash[:notice] %></div>
     <% end %>
