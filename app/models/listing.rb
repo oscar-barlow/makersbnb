@@ -6,8 +6,8 @@ class Listing
   include DataMapper::Resource
 
   property :id, Serial
-  property :name, String
-  property :price, Decimal
-  property :description, String
+  property :name, String, required: true
+  property :price, Float, required: true
+  property :description, String, required: true
 
 end
