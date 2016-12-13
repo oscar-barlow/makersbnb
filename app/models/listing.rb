@@ -7,7 +7,7 @@ class Listing
 
   property :id, Serial
   property :name, String, required: true
-  property :price, Decimal
+  property :price, Decimal, required: true
   property :description, String
 
 end
