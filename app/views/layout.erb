@@ -30,10 +30,10 @@
     <%end%>
 
     <%if !current_user %>
-    <form action='/log_in' method='get'>
+    <form action='/session/new' method='get'>
       <button type='submit'>Log in</button>
     </form>
-    <form action='/sign_up' method='get'>
+    <form action='/user/new' method='get'>
       <button type='submit'>Sign up</button>
     </form>
     <%end%>

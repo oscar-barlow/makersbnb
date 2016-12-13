@@ -35,7 +35,7 @@ feature "User" do
   end
 
   scenario "I want to be able to see a way to sign up if I am not already" do
-    visit '/listing1'
+    visit '/'
     expect(page).to have_content("Sign up")
   end
 

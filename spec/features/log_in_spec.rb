@@ -36,7 +36,7 @@ feature "Log in" do
   end
 
   it("should show me a way to log in if I am not logged in") do
-    visit '/listing1'
+    visit '/'
     expect(page).to have_content("Log in")
   end
 
