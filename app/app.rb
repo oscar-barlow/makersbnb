@@ -77,7 +77,7 @@ class MakersBnB < Sinatra::Base
 
   get '/user/listings' do
     @listings = Listing.all(user_id: current_user.id)
-    erb :'users/listings'
+    erb :'user/listings'
   end
 
   delete '/sessions' do
