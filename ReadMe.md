@@ -12,6 +12,10 @@ so that I can start using Makers BnB,
 I want to register for an account.
 
 As a user,
+so that I can be I'm setting my password correctly,
+I want to be able to temporarily see my password to check it, when I'm signing up
+
+As a user,
 so that I can use the site,
 I want to sign in.
 ```
