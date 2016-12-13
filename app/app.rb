@@ -16,14 +16,14 @@ class MakersBnB < Sinatra::Base
   set :session_secret, 'super secret'
 
   get '/' do
-    'Hello MakersBnB!'
+    erb :index
   end
 
-  get '/sign_up' do
+  get '/user/new' do
    erb :sign_up
   end
 
-  post '/new_user' do
+  post '/user' do
     @user = User.create(username: params[:username],
                         email: params[:email],
                         password: params[:password])
@@ -31,35 +31,31 @@ class MakersBnB < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       session[:username] = @user.username
-      redirect '/listing1'
+      redirect '/'
     else
       flash.next[:errors] = @user.errors.full_messages
-      redirect '/sign_up'
+      redirect '/user/new'
     end
   end
 
-  get '/log_in' do
+  get '/session/new' do
     if session[:user_id] != nil
-      redirect '/listing1'
+      redirect '/'
     else
       erb :log_in
     end
   end
 
-  post '/existing_user' do
+  post '/session' do
     user = User.authenticate(params[:username], params[:password])
       if user
          session[:user_id] = user.id
           session[:username] = user.username
-          redirect '/listing1'
+          redirect '/'
       else
         flash.next[:notice] = "Your details are incorrect"
-        redirect '/log_in'
+        redirect '/session/new'
       end
-  end
-
-  get '/listing1' do # this is a prime candidate for renaming/repurposing...
-    erb :listing
   end
 
   get '/listing/new' do
@@ -80,9 +76,9 @@ class MakersBnB < Sinatra::Base
     erb :'user/listings'
   end
 
-  delete '/sessions' do
+  delete '/session' do
     session[:user_id] = nil
-    redirect to '/log_in'
+    redirect to '/session/new'
   end
 
 

@@ -4,7 +4,7 @@ require 'web_helper'
 feature "Create listing" do
 
   before(:each) do
-    visit '/sign_up'
+    visit '/user/new'
     sign_up
   end
 
