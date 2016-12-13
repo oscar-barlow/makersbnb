@@ -29,6 +29,11 @@
     </form>
     <%end%>
 
+    <%if !current_user %>
+    <form action='/log_in' method='get'>
+      <button type='submit'>Log in</button>
+    <%end%>
+
 
   </body>
 </html>
