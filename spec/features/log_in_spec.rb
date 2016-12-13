@@ -14,7 +14,7 @@ feature "Log in" do
     expect(page.status_code).to eq(200)
 
     log_in
-    expect(page.current_path).to eq('/listing')
+    expect(page.current_path).to eq('/listing1')
     expect(page).to have_content("Hello Oscar")
   end
 
@@ -32,6 +32,6 @@ feature "Log in" do
     log_in
     visit '/log_in'
     expect(page.status_code).to eq(200)
-    expect(page.current_path).to eq('/listing')
+    expect(page.current_path).to eq('/listing1')
   end
 end
