@@ -36,7 +36,7 @@ class MakersBnB < Sinatra::Base
     if !current_user
       redirect '/'
     else
-      erb :'listings/new'
+      erb :'listing/new'
     end
   end
 
