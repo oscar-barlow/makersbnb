@@ -4,13 +4,13 @@ require 'web_helper'
 feature "Log Out" do
 
   before(:each) do
+    visit '/sign_up'
     sign_up
-    log_in
   end
 
   it("should allow a user to log out of MakersBnB") do
-    click_button("Sign Out")
-    expect(page).to have_content("Goodbye")
-    expect(page.current_path).to eq ('/goodbye')
+    log_out
+    expect(page).to have_content("Log In")
+    expect(page.current_path).to eq ('/log_in')
   end
 end

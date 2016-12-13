@@ -5,9 +5,11 @@ require 'data_mapper'
 require_relative './models/user'
 require_relative 'datamapper_setup'
 setup
+require 'pry'
 
 class MakersBnB < Sinatra::Base
 
+  use Rack::MethodOverride
   register Sinatra::Flash
 
   enable :sessions
@@ -40,11 +42,23 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/exisiting_user' do
-    redirect '/listing'
+    user = User.authenticate(params[:username], params[:password])
+      if user
+        session[:user_id] = user.id
+        redirect '/listing'
+      else
+        flash.next[:error] = "Your details are incorrect"
+        redirect '/log_in'
+      end
   end
 
   get '/listing' do
     erb :listing
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect to '/log_in'
   end
 
 

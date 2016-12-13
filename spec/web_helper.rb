@@ -18,3 +18,19 @@ def failed_sign_up_email_format
   fill_in("password", with: "test")
   click_button("Sign Up")
 end
+
+def log_in
+  fill_in("username", with: "Oscar")
+  fill_in("password", with: "test")
+  click_button("Log In")
+end
+
+def failed_log_in_wrong_username
+  fill_in("username", with: "Oscar2")
+  fill_in("password", with: "test")
+  click_button("Log In")
+end
+
+def log_out
+    click_button("Log Out")
+end
