@@ -56,18 +56,20 @@ I want to mark a night with a confirmed booking as unavailable to others.
 ```
 
 ```
-As a signed-up user wanting to travel,
+As someone wanting to travel,
 in order to find a place to stay,
 I want to see all possible listings.
 
-As a signed-up user wanting to travel,
+As a someone wanting to travel,
 in order to view a place I am interested in,
 I want to be able to access individual listing.
 
-As a signed-up user wanting to travel,
+As a someone user wanting to travel,
 in order to avoid disappointment,
 I want to see when a place is available.
+```
 
+```
 As a signed-up user wanting to travel,
 in order to book a place to stay,
 I want to be able to send a request to the landlord.
