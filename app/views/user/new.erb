@@ -1,11 +1,18 @@
 <h2>Sign Up</h2>
 
 <form action="/user" method="post">
-  <lable for="username">Username</lable>
+  <div class="form-group">
+  <label for="username">Username</label>
   <input type="text" name="username" size="" placeholder="Please enter user name" required/>
-  <lable for="email">Email</lable>
+  </div>
+  <div class="form-group">
+  <label for="email">Email</label>
   <input type="email" name="email" size="" placeholder="Please enter email" required/>
-  <lable for="password">Password</lable>
+  </div>
+  <div class="form-group">
+  <label for="password">Password</label>
   <input type="password" name="password" size="" placeholder="Please enter password" required/>
+  </div>
+
   <input type="submit" value="Sign Up"/>
 </form>

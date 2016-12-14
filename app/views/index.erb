@@ -1,2 +1,20 @@
+<div class="jumbotron">
+
+  <h1>MakersBnB</h1>
+  <p> Find a place to stay tonight! </p>
+  <%if !current_user %>
+  <form action='/session/new' method='get'>
+    <button type='submit' class="btn btn-primary btn-lg">Log in</button>
+  </form>
+  <form action='/user/new' method='get'>
+    <button type='submit' class="btn btn-primary btn-lg">Sign up</button>
+  </form>
+  <%end%>
+</div>
+
+
+<% if current_user %>
+<h1> Hello <%= current_user.username.capitalize %> </h1>
+<% end %>
 <h2>All Listings</h2>
 <%= partial :listings_table %>
