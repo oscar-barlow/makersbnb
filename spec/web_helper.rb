@@ -22,13 +22,13 @@ end
 def log_in
   fill_in("username", with: "Oscar")
   fill_in("password", with: "test")
-  click_button("Log In")
+  click_button("Submit")
 end
 
 def failed_log_in_wrong_username
   fill_in("username", with: "Oscar2")
   fill_in("password", with: "test")
-  click_button("Log In")
+  click_button("Submit")
 end
 
 def log_out

@@ -13,14 +13,12 @@ feature "See listings" do
   scenario "user can view the listings on the home page if logged in" do
       visit '/'
       expect(page).to have_content("A Lovely Cottage")
-
   end
 
   scenario "user can view listings on home page if not logged in" do
     log_out
     visit '/'
     expect(page).to have_content("A Lovely Cottage")
-
   end
 
   scenario "user can click through to see details of a particular listing" do
@@ -40,6 +38,13 @@ feature "See listings" do
     expect(page).to have_content("Oscar")
     expect(page).to have_content("Check in date")
     expect(page).to have_content("Message")
+  end 
+
+  scenario "user can view a listing then get back to the listings page" do
+    visit '/'
+    click_link("A Lovely Cottage")
+    click_on("All Listings")
+    expect(page.current_path).to eq('/')
   end
 
 end
