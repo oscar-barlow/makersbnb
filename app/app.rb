@@ -16,6 +16,9 @@ class MakersBnB < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
+  set :partial_template_engine, :erb
+
+  enable :partial_underscores
 
   get '/' do
     @listings = Listing.all
