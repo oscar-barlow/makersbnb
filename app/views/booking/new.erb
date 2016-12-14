@@ -1,1 +1,10 @@
 <h1> Request booking </h1>
+<%= current_user.username.capitalize %>
+
+<form action='/user/bookings' method="post">
+  <label for="requested_date">Check in date</label>
+  <input type="date" name="requested_date">
+  <label for="message">Message</label>
+  <input type="text" name="message">
+  <input type="submit" value="Request booking">
+</form>
