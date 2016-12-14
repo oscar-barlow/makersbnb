@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require 'sinatra/flash'
+require 'sinatra/partial'
 require 'data_mapper'
 require_relative './models/user'
 require_relative 'datamapper_setup'
@@ -11,6 +12,7 @@ class MakersBnB < Sinatra::Base
 
   use Rack::MethodOverride
   register Sinatra::Flash
+  register Sinatra::Partial
 
   enable :sessions
   set :session_secret, 'super secret'
