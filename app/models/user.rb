@@ -10,7 +10,7 @@ class User
   property :email, String, required: true, unique: true
   property :password_digest, Text, required: true
 
-  has n, :listings
+  has n, :listings, :bookings
 
   attr_reader :password
 
@@ -22,7 +22,7 @@ class User
     @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
-  
+
   def self.authenticate(username, password)
     user = first(username: username)
       if user && BCrypt::Password.new(user.password_digest) == password

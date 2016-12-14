@@ -35,8 +35,7 @@ feature "See listings" do
     visit '/'
     click_link("A Lovely Cottage")
     click_button("Request booking")
-    expect(page.current_path).to eq('/booking/new')
-    expect(page.status_code).to eq(200)
+  
     expect(page).to have_content("Request booking")
     expect(page).to have_content("Oscar")
     expect(page).to have_content("Check in date")

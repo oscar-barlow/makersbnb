@@ -10,6 +10,7 @@ class Listing
   property :price, Float, required: true
   property :description, String, required: true
 
+  has n, :booking, through: Resource
   belongs_to :user
 
 end
