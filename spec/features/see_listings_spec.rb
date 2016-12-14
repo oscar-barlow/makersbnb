@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'web_helper'
 
-feature "See all listings" do
+feature "See listings" do
 
   before(:each) do
     visit '/'
@@ -21,6 +21,14 @@ feature "See all listings" do
     visit '/'
     expect(page).to have_content("A Lovely Cottage")
 
+  end
+
+  scenario "user can click through to see details of a particular listing" do
+    visit '/'
+    click_link("A Lovely Cottage")
+    expect(page).to have_content("A Lovely Cottage")
+    expect(page).to have_content("Includes jacuzzi")
+    expect(page).to have_content("12.5")
   end
 
 end

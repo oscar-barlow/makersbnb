@@ -82,6 +82,11 @@ class MakersBnB < Sinatra::Base
     redirect to '/session/new'
   end
 
+  get '/listing/:id' do
+    @listing = Listing.get(params[:id])
+    erb :'listing/get'
+  end
+
 
 helpers do
   def current_user
