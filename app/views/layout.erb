@@ -1,44 +1,63 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>MakersBnB</title>
-  </head>
-  <body>
-    <header>
-      <h1>MakersBnB - Find a Place to Stay Tonight</h1>
-      <% if current_user %>
-      <h1> Hello <%= current_user.username.capitalize %> </h1>
-      <% end %>
-    </header>
-    <% if flash[:notice] %>
-    <div id='notice'><%= flash[:notice] %></div>
-    <% end %>
+<html lang="en">
+<head>
 
-    <% if flash[:errors] && !flash[:errors].empty? %>
-    <ul id='flash'>
-      <% flash[:errors].each do |error| %>
-       <li> <%= error %> </li>
-      <% end %>
-    </ul>
-    <%end %>
-    <%= yield %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>MakersBnB</title>
+
+  <link href="../public/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ^^may be broken -->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <h1>MakersBnB - Find a Place to Stay Tonight</h1>
     <% if current_user %>
-    <form action='/session' method='post'>
-      <input type='hidden' name='_method' value='delete'>
-      <input type='submit' value="Log Out">
-    </form>
-    <%end%>
+    <h1> Hello <%= current_user.username.capitalize %> </h1>
+    <% end %>
+  </header>
+  <% if flash[:notice] %>
+  <div id='notice'><%= flash[:notice] %></div>
+  <% end %>
 
-    <%if !current_user %>
-    <form action='/session/new' method='get'>
-      <button type='submit'>Log in</button>
-    </form>
-    <form action='/user/new' method='get'>
-      <button type='submit'>Sign up</button>
-    </form>
-    <%end%>
+  <% if flash[:errors] && !flash[:errors].empty? %>
+  <ul id='flash'>
+    <% flash[:errors].each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+  <%end %>
+  <%= yield %>
 
+  <% if current_user %>
+  <form action='/session' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+    <input type='submit' value="Log Out">
+  </form>
+  <%end%>
 
-  </body>
+  <%if !current_user %>
+  <form action='/session/new' method='get'>
+    <button type='submit'>Log in</button>
+  </form>
+  <form action='/user/new' method='get'>
+    <button type='submit'>Sign up</button>
+  </form>
+  <%end%>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
 </html>
