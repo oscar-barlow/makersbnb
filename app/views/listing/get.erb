@@ -1,3 +1,7 @@
 <h2><%= @listing.name %></h2>
 <p><%= @listing.description %></p>
 <p>Price per night: <%= @listing.price %></p>
+
+<form action='/booking/new' method="get">
+  <button type = "submit">Request booking</button>
+</form>
