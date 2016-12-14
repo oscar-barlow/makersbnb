@@ -7,7 +7,7 @@
   </tr>
   <% @listings.each do |listing| %>
   <tr>
-    <td><%= listing.name %></td>
+    <td><a href="/listing/<%= listing.id %>"><%= listing.name %></a></td>
     <td><%= listing.price %></td>
     <td><%= listing.description %></td>
   </tr>
