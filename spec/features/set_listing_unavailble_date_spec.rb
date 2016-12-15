@@ -11,7 +11,9 @@ feature "Set a listing unavailable" do
   end
 
   scenario "listing owner sets a date when the listing is unavailable" do
-    visit '/listing/1/unavailable/new'
+    click_link("A Lovely Cottage")
+    click_button("Date Unavailability")
+    expect(page.current_path).to eq '/listing/1/unavailable/new'
     fill_in("date", with: "01-02-2017")
     click_button("Submit")
     expect(page.current_path).to eq '/listing/1'
