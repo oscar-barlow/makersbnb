@@ -29,6 +29,17 @@ feature "See listings" do
     expect(page).to have_content("12.5")
   end
 
+  scenario "user can make a request to book a particular listing" do
+    visit '/'
+    click_link("A Lovely Cottage")
+    click_button("Request booking")
+  
+    expect(page).to have_content("Request booking")
+    expect(page).to have_content("Oscar")
+    expect(page).to have_content("Check in date")
+    expect(page).to have_content("Message")
+  end 
+
   scenario "user can view a listing then get back to the listings page" do
     visit '/'
     click_link("A Lovely Cottage")

@@ -4,7 +4,10 @@ require 'sinatra/flash'
 require 'sinatra/partial'
 require 'data_mapper'
 require_relative './models/user'
+require_relative './models/booking'
+require_relative './models/listing'
 require_relative 'datamapper_setup'
+
 setup
 require 'pry'
 
@@ -73,7 +76,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing' do
-    Listing.create(name: params[:name], price: params[:price], description: params[:description], user_id: current_user.id)
+    @listing = Listing.create(name: params[:name], price: params[:price], description: params[:description], user_id: current_user.id)
     redirect('/user/listings')
   end
 
@@ -92,6 +95,24 @@ class MakersBnB < Sinatra::Base
     erb :'listing/get'
   end
 
+  get '/listing/:id/booking/new' do
+    @listing_id = Listing.get(params[:id]).id
+    erb :'booking/new'
+  end
+
+  post '/listing/:id/booking' do
+    @listing_id = Listing.get(params[:id]).id
+    booking = Booking.create(user_id: current_user.id,
+                              listing_id: params[:id],
+                              check_in: params[:check_in],
+                              message: params[:message])
+    binding.pry
+    redirect "/listing/#{@listing_id}/booking/confirmation"
+  end
+
+  get '/listing/:id/booking/confirmation' do
+    erb :'booking/confirmation'
+  end
 
 helpers do
   def current_user
