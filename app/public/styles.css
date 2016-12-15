@@ -4,5 +4,17 @@
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 65px;
+}
+
+._method {
+  float:right;
+}
+
+.link-button {
+  background: none;
+     border: none;
+     color: inherit;
+     text-decoration: underline;
+     cursor: pointer;
 }
