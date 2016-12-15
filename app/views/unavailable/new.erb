@@ -1,0 +1,7 @@
+<h1>Make Listing Unavailable</h1>
+<p>Please enter a date when you would like this listing to be unavailable.</p>
+<form action="/listing/<%= @listing_id %>/unavailable" method="post">
+  <label for="date">date</label>
+  <input type="date" name="date" />
+  <button type="submit">Submit</button>
+</form>

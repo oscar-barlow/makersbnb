@@ -93,6 +93,7 @@ class MakersBnB < Sinatra::Base
 
   get '/listing/:id' do
     @listing = Listing.get(params[:id])
+    @unavailables = Unavailable.all(listing_id: params[:id])
     erb :'listing/get'
   end
 
@@ -112,6 +113,17 @@ class MakersBnB < Sinatra::Base
 
   get '/listing/:id/booking/confirmation' do
     erb :'booking/confirmation'
+  end
+
+  get '/listing/:id/unavailable/new' do
+    @listing_id = params[:id]
+    erb :'unavailable/new'
+  end
+
+  post '/listing/:id/unavailable' do
+    @listing_id = params[:id]
+    @unavailable = Unavailable.create(date: params[:date], listing_id: @listing_id )
+    redirect("/listing/#{@listing_id}")
   end
 
 helpers do

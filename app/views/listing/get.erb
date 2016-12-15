@@ -2,7 +2,17 @@
 <h2><%= @listing.name %></h2>
 <p><%= @listing.description %></p>
 <p>Price per night: <%= @listing.price %></p>
+<p>This space is unavailable on:</p>
+<ul>
+  <% @unavailables.each do |unavailable| %>
+  <li><%= unavailable.date.strftime('%e %B %Y') %></li>
+  <% end %>
+</ul>
 
 <form action='/listing/<%= @listing.id %>/booking/new' method="get">
   <button type = "submit">Request booking</button>
+</form>
+
+<form action="/listing/<%= @listing.id %>/unavailable/new" method="get">
+  <button type="submit">Date Unavailability</button>
 </form>
