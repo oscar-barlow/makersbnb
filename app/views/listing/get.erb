@@ -13,6 +13,8 @@
   <button type = "submit">Request booking</button>
 </form>
 
+<% if @listing.user_id == session[:user_id] %>
 <form action="/listing/<%= @listing.id %>/unavailable/new" method="get">
   <button type="submit">Date Unavailability</button>
 </form>
+<% end %>
