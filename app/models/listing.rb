@@ -14,7 +14,4 @@ class Listing
   has n, :unavailables, through: Resource
   belongs_to :user
 
-  def set_unavailable_date
-  end
-
 end
