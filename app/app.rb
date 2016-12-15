@@ -6,6 +6,7 @@ require 'data_mapper'
 require_relative './models/user'
 require_relative './models/booking'
 require_relative './models/listing'
+require_relative './models/unavailable'
 require_relative 'datamapper_setup'
 
 setup
