@@ -77,7 +77,10 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing' do
-    @listing = Listing.create(name: params[:name], price: params[:price], description: params[:description], user_id: current_user.id)
+    @listing = Listing.create(name: params[:name],
+                              price: params[:price],
+                              description: params[:description],
+                              user_id: current_user.id)
     redirect('/user/listings')
   end
 
@@ -108,11 +111,13 @@ class MakersBnB < Sinatra::Base
                               listing_id: params[:id],
                               check_in: params[:check_in],
                               message: params[:message])
-    redirect "/listing/#{@listing_id}/booking/confirmation"
+    redirect "/booking/#{booking.id}"
   end
 
-  get '/listing/:id/booking/confirmation' do
-    erb :'booking/confirmation'
+  get '/booking/:id' do 
+    @booking = Booking.get(params[:id])
+    @listing_name = Listing.get(@booking.listing_id).name
+    erb :'booking/get'
   end
 
   get '/listing/:id/unavailable/new' do
