@@ -106,7 +106,6 @@ class MakersBnB < Sinatra::Base
                               listing_id: params[:id],
                               check_in: params[:check_in],
                               message: params[:message])
-    binding.pry
     redirect "/listing/#{@listing_id}/booking/confirmation"
   end
 
