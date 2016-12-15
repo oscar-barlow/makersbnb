@@ -92,7 +92,6 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listing/:id' do
-    p current_user
     @listing = Listing.get(params[:id])
     @unavailables = Unavailable.all(listing_id: params[:id])
     erb :'listing/get'
