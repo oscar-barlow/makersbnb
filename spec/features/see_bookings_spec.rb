@@ -22,4 +22,14 @@ feature "See bookings" do
     expect(page).to have_content("see bookings listing")
     expect(page).to have_content("2 January 2017")
   end
+
+  scenario "landlord sees bookings travellers have made" do
+    log_out
+    log_in
+    visit '/user/bookings'
+    expect(page).to have_content("Pending Reservations")
+    expect(page).to have_content("see bookings listing")
+    expect(page).to have_content("2 January 2017")
+  end
+
 end
