@@ -129,7 +129,7 @@ class MakersBnB < Sinatra::Base
 
   post '/booking/:id/confirm' do
     @booking = Booking.get(params[:id])
-    @booking.set_confirmed
+    @booking.update(confirmed: true)
     redirect '/user/bookings'
   end
 
