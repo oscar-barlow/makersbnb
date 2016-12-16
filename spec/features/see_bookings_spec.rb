@@ -31,6 +31,7 @@ feature "See bookings" do
     expect(page).to have_content("Your Reservations")
     expect(page).to have_content("see bookings listing")
     expect(page).to have_content("2 January 2017")
+    expect(page).to have_content("Confirmed: false")
   end
 
 end
