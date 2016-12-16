@@ -3,18 +3,92 @@
   margin-right:5px;
 }
 
-body {
+.log_in{
     padding-top: 65px;
+    background: url("http://i68.tinypic.com/2mcvcwg.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 700% 100% 50% 1000%;
+    background-attachment: fixed;
+    text-align: center;
 }
+
+.log_in_heading{
+  padding: 30px;
+  margin-right: 100px;
+  margin-top: -75px;
+}
+
+#log_in_form {
+  background-color: transparent;
+  border: solid black;
+}
+
+::-webkit-input-placeholder{
+  color: black;
+}
+
+#log_in_submit_button {
+      background-color: transparent;
+      border: none;
+  }
 
 ._method {
   float:right;
 }
 
+body {
+  align: center;
+  margin-top: 100px;
+  margin-left: 170px;
+  background-color: rgb(225,225,225)
+}
+
+.jumbotron {
+  position: center;
+  text-align: center;
+  background: url("http://colorfully.eu/wp-content/uploads/2012/09/twenty-years-from-now-you-will-be-more-disappointed-by-the-things-you-didnt-do-facebook-cover.jpg");
+  background-repeat: no-repeat;
+  min-height: 300px;
+}
+
+.heading-index {
+  color: black;
+  text-align: center;
+  margin-right: 250px;
+
+
+}
+
+#road-pic {
+  background: url("http://i66.tinypic.com/2nu4ruo.png");
+}
+
+
 .link-button {
   background: none;
      border: none;
-     color: inherit;
-     text-decoration: underline;
+     color: #9d9d9d;
      cursor: pointer;
+     padding: 10px;
+     margin-top: 6.5px;
+}
+
+.link-button:hover {
+      color: white;
+      }
+
+.link-button {
+      border: none;
+      outline: none;
+      }
+
+.Sign-up-heading {
+  margin-top: 20px;
+  padding: 100px;
+}
+
+.table-striped {
+  width: 854px;
+  background-color: rgb(200,200,200);
 }

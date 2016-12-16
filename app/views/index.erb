@@ -1,16 +1,9 @@
 <div class="jumbotron">
-
-  <h1>MakersBnB</h1>
-  <p> Find a place to stay tonight! </p>
-  <%if !current_user %>
-  <form action='/session/new' method='get'>
-    <button type='submit' class="btn btn-primary btn-lg">Log in</button>
-  </form>
-  <form action='/user/new' method='get'>
-    <button type='submit' class="btn btn-primary btn-lg">Sign up</button>
-  </form>
-  <%end%>
 </div>
+
+
+<h1 class="heading-index">MakersBnB</h1>
+<p  class="heading-index"> Find a place to stay tonight! </p>
 
 
 <% if current_user %>
