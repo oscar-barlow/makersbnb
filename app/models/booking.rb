@@ -12,4 +12,8 @@ class Booking
 
   belongs_to :user
   belongs_to :listing
+
+  def set_confirmed
+    @confirmed = true
+  end
 end

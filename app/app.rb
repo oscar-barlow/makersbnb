@@ -127,6 +127,12 @@ class MakersBnB < Sinatra::Base
     erb :'booking/get'
   end
 
+  post '/booking/:id/confirm' do
+    @booking = Booking.get(params[:id])
+    @booking.set_confirmed
+    redirect '/user/bookings'
+  end
+
   get '/listing/:id/unavailable/new' do
     @listing_id = params[:id]
     erb :'unavailable/new'

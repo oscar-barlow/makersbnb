@@ -10,7 +10,7 @@
     <h2><%= reservation[0].listing.name %></h2>
     <ul>
     <% reservation.each do |booking| %>
-        <li><a href="<%= booking.id %>">#<%= booking.id %></a>: <%= booking.user.username %> on <%= booking.check_in.strftime('%e %B %Y')%>. Confirmed: <%= booking.confirmed %></li>
+        <li><a href="/booking/<%= booking.id %>">#<%= booking.id %></a>: <%= booking.user.username %> on <%= booking.check_in.strftime('%e %B %Y')%>. Confirmed: <%= booking.confirmed %></li>
     <% end %>
       </ul>
    <% end %>

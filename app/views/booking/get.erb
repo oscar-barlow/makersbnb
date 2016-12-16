@@ -2,3 +2,7 @@
 
 <p><%= @booking.check_in.strftime('%e %B %Y') %></p>
 <p><%= @listing_name %></p>
+
+<form action="/booking/<%= @booking.id %>/confirm" method="post">
+  <button type="submit">Confirm Booking</button>
+</form>
