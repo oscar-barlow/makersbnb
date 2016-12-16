@@ -77,13 +77,23 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing' do
-    @listing = Listing.create(name: params[:name], price: params[:price], description: params[:description], user_id: current_user.id)
+    @listing = Listing.create(name: params[:name],
+                              price: params[:price],
+                              description: params[:description],
+                              user_id: current_user.id)
     redirect('/user/listings')
   end
 
   get '/user/listings' do
     @listings = Listing.all(user_id: current_user.id)
     erb :'user/listings'
+  end
+
+  get '/user/bookings' do
+    @bookings = Booking.all(user_id: current_user.id)
+    @listings = Listing.all(user_id: current_user.id)
+    @reservations = @listings.collect { |space| space.bookings }
+    erb :'user/bookings'
   end
 
   delete '/session' do
@@ -108,11 +118,19 @@ class MakersBnB < Sinatra::Base
                               listing_id: params[:id],
                               check_in: params[:check_in],
                               message: params[:message])
-    redirect "/listing/#{@listing_id}/booking/confirmation"
+    redirect "/booking/#{booking.id}"
   end
 
-  get '/listing/:id/booking/confirmation' do
-    erb :'booking/confirmation'
+  get '/booking/:id' do
+    @booking = Booking.get(params[:id])
+    @listing_name = Listing.get(@booking.listing_id).name
+    erb :'booking/get'
+  end
+
+  post '/booking/:id/confirm' do
+    @booking = Booking.get(params[:id])
+    @booking.update(confirmed: true)
+    redirect '/user/bookings'
   end
 
   get '/listing/:id/unavailable/new' do
@@ -130,6 +148,11 @@ helpers do
   def current_user
     @current_user ||= User.get(session[:user_id])
   end
+
+  def listing_name(id)
+    @listing_name = Listing.get(id).name
+  end
+
 end
 
   # start the server if ruby file executed directly

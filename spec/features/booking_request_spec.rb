@@ -17,7 +17,9 @@ feature "Booking" do
     fill_in("message", with: "I would like cake on arrival")
     click_button("Request booking")
 
-    expect(page.current_path).to eq('/listing/1/booking/confirmation')
-    expect(page).to have_content('Confirmation')
+    expect(page.current_path).to eq('/booking/1')
+    expect(page).to have_content('Booking Request')
+    expect(page).to have_content('1 January 2017')
+    expect(page).to have_content('A Lovely Cottage')
   end
 end

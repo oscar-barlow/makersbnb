@@ -1,0 +1,12 @@
+<h1> Booking Request </h1>
+
+<p><%= @booking.check_in.strftime('%e %B %Y') %></p>
+<p><%= @listing_name %></p>
+
+<% if @booking.listing.user.id == current_user.id %>
+
+<form action="/booking/<%= @booking.id %>/confirm" method="post">
+  <button type="submit">Confirm Booking</button>
+</form>
+
+<% end %>
