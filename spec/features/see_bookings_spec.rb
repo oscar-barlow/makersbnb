@@ -12,15 +12,14 @@ feature "See bookings" do
     sign_up_new_user
     visit ('/')
     click_link("see bookings listing")
-    visit('/listing/3')
     click_button("Request booking")
     fill_in("check_in", with: "02-01-2017")
     click_button("Request booking")
   end
 
   scenario "user traveler sees bookings they have made" do
-    visit '/booking/3'
+    visit '/user/bookings'
     expect(page).to have_content("see bookings listing")
-    expect(page).to have_content("2 February 2017")
+    expect(page).to have_content("2 January 2017")
   end
 end
