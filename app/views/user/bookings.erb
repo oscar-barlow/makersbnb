@@ -1,6 +1,16 @@
-<h1> Your bookings </h1>
+<h1>Your Trips</h1>
 <ul>
   <% @bookings.each do |booking| %>
   <li><a href="/booking/<%= booking.id %>">#<%= booking.id %></a>: <%= booking.listing.name %> on <%= booking.check_in.strftime('%e %B %Y')%></li>
    <% end %>
  </ul>
+
+ <h1>Your Reservations</h1>
+   <% @reservations.each do |reservation| %>
+    <h2><%= reservation[0].listing.name %></h2>
+    <ul>
+    <% reservation.each do |booking| %>
+        <li><a href="<%= booking.id %>">#<%= booking.id %></a>: <%= booking.user.username %> on <%= booking.check_in.strftime('%e %B %Y')%></li>
+    <% end %>
+      </ul>
+   <% end %>

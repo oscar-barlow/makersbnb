@@ -91,6 +91,8 @@ class MakersBnB < Sinatra::Base
 
   get '/user/bookings' do
     @bookings = Booking.all(user_id: current_user.id)
+    @listings = Listing.all(user_id: current_user.id)
+    @reservations = @listings.collect { |space| space.bookings }
     erb :'user/bookings'
   end
 
