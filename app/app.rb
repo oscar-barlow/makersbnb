@@ -113,12 +113,18 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listing/:id/booking' do
-    @listing_id = Listing.get(params[:id]).id
-    booking = Booking.create(user_id: current_user.id,
-                              listing_id: params[:id],
-                              check_in: params[:check_in],
-                              message: params[:message])
-    redirect "/booking/#{booking.id}"
+    @listing = Listing.get(params[:id])
+    date = DateTime.strptime(params[:check_in], "%Y-%m-%d")
+    if @listing.unavailables.any?{|unavailable| unavailable.date == date}
+      flash.next[:notice] = "Sorry, the property is not available on that date"
+      redirect "/listing/#{@listing.id}/booking/new"
+    else
+      booking = Booking.create(user_id: current_user.id,
+                                listing_id: params[:id],
+                                check_in: params[:check_in],
+                                message: params[:message])
+      redirect "/booking/#{booking.id}"
+    end
   end
 
   get '/booking/:id' do
@@ -130,6 +136,7 @@ class MakersBnB < Sinatra::Base
   post '/booking/:id/confirm' do
     @booking = Booking.get(params[:id])
     @booking.update(confirmed: true)
+    unavailable = Unavailable.create(date: params[:check_in])
     redirect '/user/bookings'
   end
 
