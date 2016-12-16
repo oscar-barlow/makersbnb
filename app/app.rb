@@ -96,6 +96,7 @@ class MakersBnB < Sinatra::Base
 
   get '/listing/:id' do
     @listing = Listing.get(params[:id])
+    # binding.pry
     @unavailables = Unavailable.all(listing_id: params[:id])
     erb :'listing/get'
   end
@@ -114,9 +115,10 @@ class MakersBnB < Sinatra::Base
     redirect "/booking/#{booking.id}"
   end
 
-  get '/booking/:id' do 
+  get '/booking/:id' do
     @booking = Booking.get(params[:id])
     @listing_name = Listing.get(@booking.listing_id).name
+    # binding.pry
     erb :'booking/get'
   end
 
