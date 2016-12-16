@@ -1,7 +1,7 @@
 <h1>Your Trips</h1>
 <ul>
   <% @bookings.each do |booking| %>
-  <li><a href="/booking/<%= booking.id %>">#<%= booking.id %></a>: <%= booking.listing.name %> on <%= booking.check_in.strftime('%e %B %Y')%></li>
+  <li><a href="/booking/<%= booking.id %>">#<%= booking.id %></a>: <%= booking.listing.name %> on <%= booking.check_in.strftime('%e %B %Y')%>. Confirmed: <%= booking.confirmed %></li>
    <% end %>
  </ul>
 

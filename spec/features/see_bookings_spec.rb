@@ -21,6 +21,7 @@ feature "See bookings" do
     visit '/user/bookings'
     expect(page).to have_content("see bookings listing")
     expect(page).to have_content("2 January 2017")
+    expect(page).to have_content("Confirmed: false")
   end
 
   scenario "landlord sees bookings travellers have made" do
