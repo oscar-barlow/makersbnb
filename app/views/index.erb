@@ -1,2 +1,13 @@
+<div class="jumbotron">
+</div>
+
+
+<h1 class="heading-index">MakersBnB</h1>
+<p  class="heading-index"> Find a place to stay tonight! </p>
+
+
+<% if current_user %>
+<h1> Hello <%= current_user.username.capitalize %> </h1>
+<% end %>
 <h2>All Listings</h2>
 <%= partial :listings_table %>
