@@ -11,7 +11,7 @@ feature "Booking" do
     click_button("Request booking")
   end
 
-  it("should fill out request booking form and go to confirmation page") do
+  scenario "I want to be able to fill out request booking form and go to confirmation page" do
     visit '/listing/1/booking/new'
     fill_in("check_in", with: "01-01-2017")
     fill_in("message", with: "I would like cake on arrival")

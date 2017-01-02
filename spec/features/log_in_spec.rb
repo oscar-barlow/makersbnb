@@ -9,7 +9,7 @@ feature "Log in" do
     log_out
   end
 
-  it("should allow a user to log into MakersBnb") do
+  scenario "I want to be able to log into MakersBnb" do
     visit '/session/new'
     expect(page.status_code).to eq(200)
 
@@ -18,7 +18,7 @@ feature "Log in" do
     expect(page).to have_content("Hello Oscar")
   end
 
-  it("should not allow me to log in if my username does not match my registered username") do
+  scenario "I do not want to be able to log in if my username does not match my registered username" do
     visit '/session/new'
     expect(page.status_code).to eq(200)
 
@@ -27,7 +27,7 @@ feature "Log in" do
     expect(page).to have_content("Your details are incorrect")
   end
 
-  it("should redirect user to listing page if they are already logged in") do
+  scenario "I want to be re-directed to the listing page if I am already logged in" do
     visit '/session/new'
     log_in
     visit '/session/new'
@@ -35,7 +35,7 @@ feature "Log in" do
     expect(page.current_path).to eq('/')
   end
 
-  it("should show me a way to log in if I am not logged in") do
+  scenario "I want to be able to have access to the log in page if I am not logged in" do
     visit '/'
     expect(page).to have_content("Log in")
   end
